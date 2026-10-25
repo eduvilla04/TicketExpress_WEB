@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="TicketExpress: descubrí conciertos, teatro, arte, deporte y experiencias en El Salvador.">
+  <title>Inicio | TicketExpress</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-brand">
+        <button class="icon-button menu-button" type="button" id="menu-button"
+                aria-label="Abrir menú" aria-controls="site-menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <a href="index.html" class="brand" aria-label="TicketExpress, ir al inicio">ticket.</a>
+      </div>
+
+      <nav class="header-actions" aria-label="Acciones principales">
+        <div class="city-select-wrap">
+          <label class="sr-only" for="city-select">Seleccionar ciudad</label>
+          <select id="city-select" class="city-select">
+            <option value="San Salvador">San Salvador</option>
+            <option value="Santa Tecla">Santa Tecla</option>
+            <option value="Todo El Salvador">Todo El Salvador</option>
+          </select>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5-5"/></svg>
+        </div>
+
+        <button type="button" class="pill-button search-button" id="search-button"
+                aria-label="Buscar eventos" aria-controls="search-panel" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.3"/><path d="m15.5 15.5 4.7 4.7"/></svg>
+        </button>
+
+        <button type="button" class="pill-button tickets-button" disabled>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v4a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4V7Z"/><path d="M11.5 9v2m0 2v2m0 2v1"/></svg>
+          <span>Mis entradas</span>
+        </button>
+
+        <button type="button" class="pill-button login-button" disabled>Iniciar sesión</button>
+      </nav>
+    </div>
+
+    <nav id="site-menu" class="drop-menu" aria-label="Menú del sitio" hidden>
+      <a href="index.html" aria-current="page">Inicio</a>
+      <a href="explorar.html">Explorar eventos</a>
+    </nav>
+
+    <div id="search-panel" class="search-panel" hidden>
+      <form id="search-form" class="search-panel-inner" role="search">
+        <label for="event-search" class="sr-only">Buscar por nombre de evento</label>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.3"/><path d="m15.5 15.5 4.7 4.7"/></svg>
+        <input id="event-search" type="search" placeholder="Buscar eventos..." autocomplete="off">
+        <button type="button" class="clear-search" id="clear-search" aria-label="Limpiar búsqueda">✕</button>
+      </form>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="intro-location">EL SALVADOR</p>
+      <h1 id="page-title">Descubrí experiencias</h1>
+      <p class="intro-description">Conciertos, cultura y momentos que vale la pena vivir.</p>
+    </section>
+
+    <section class="events-section" aria-labelledby="events-heading">
+      <div class="events-toolbar">
+        <h2 id="events-heading">
+          <button type="button" id="show-all" aria-label="Mostrar todos los eventos">Todos los eventos</button>
+        </h2>
+
+        <aside class="filters-aside" aria-labelledby="filters-label">
+          <h3 class="sr-only" id="filters-label">Filtrar por categoría</h3>
+          <div class="categories" role="group" aria-label="Categorías disponibles">
+            <button type="button" data-filter="Música">Música</button>
+            <button type="button" data-filter="Arte">Arte</button>
+            <button type="button" data-filter="Teatro">Teatro</button>
+            <button type="button" data-filter="Deportes">Deportes</button>
+            <button type="button" data-filter="Cine">Cine</button>
+          </div>
+        </aside>
+      </div>
+
+      <div class="events-grid" id="events-grid">
+        <article class="event-card" aria-labelledby="evento-nocturna-sessions" data-category="Música" data-city="San Salvador" data-name="Nocturna Sessions">
+          <a class="event-card__link" href="explorar.html?evento=nocturna-sessions">
+            <figure class="poster poster--nocturna" aria-hidden="true">
+              <span class="poster-shape shape-a"></span><span class="poster-shape shape-b"></span><span class="poster-shape shape-c"></span><span class="poster-bar"></span>
+              <span class="poster-title">NOCTURNA</span><span class="poster-caption">SESSION 01</span>
+            </figure>
+            <div class="event-details">
+              <p class="event-meta">Música <span aria-hidden="true">·</span> El Salvador</p>
+              <h3 id="evento-nocturna-sessions">Nocturna Sessions</h3>
+              <p class="event-date"><time datetime="2026-10-24T20:00:00-06:00">24 OCT · 8:00 PM</time></p>
+              <p class="event-venue">Museo de Arte · San Salvador</p>
+              <p class="event-price">Desde $35</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="event-card" aria-labelledby="evento-jazz-after-hours" data-category="Música" data-city="Santa Tecla" data-name="Jazz After Hours">
+          <a class="event-card__link" href="explorar.html?evento=jazz-after-hours">
+            <figure class="poster poster--jazz" aria-hidden="true">
+              <span class="poster-shape shape-a"></span><span class="poster-shape shape-b"></span>
+              <span class="poster-title">JAZZ</span><span class="poster-subtitle">AFTER HOURS</span><span class="poster-caption">LIVE MUSIC</span>
+            </figure>
+            <div class="event-details">
+              <p class="event-meta">Música <span aria-hidden="true">·</span> El Salvador</p>
+              <h3 id="evento-jazz-after-hours">Jazz After Hours</h3>
+              <p class="event-date"><time datetime="2026-10-31T19:30:00-06:00">31 OCT · 7:30 PM</time></p>
+              <p class="event-venue">Centro Cultural · Santa Tecla</p>
+              <p class="event-price">Desde $28</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="event-card" aria-labelledby="evento-el-arte-de-estar" data-category="Arte" data-city="San Salvador" data-name="El arte de estar">
+          <a class="event-card__link" href="explorar.html?evento=el-arte-de-estar">
+            <figure class="poster poster--arte" aria-hidden="true">
+              <span class="poster-shape shape-a"></span><span class="poster-shape shape-b"></span>
+              <span class="poster-title">EL ARTE<br>DE ESTAR</span><span class="poster-caption">EXHIBITION / 2026</span>
+            </figure>
+            <div class="event-details">
+              <p class="event-meta">Arte <span aria-hidden="true">·</span> El Salvador</p>
+              <h3 id="evento-el-arte-de-estar">El arte de estar</h3>
+              <p class="event-date"><time datetime="2026-11-08T18:00:00-06:00">08 NOV · 6:00 PM</time></p>
+              <p class="event-venue">Galería Centro · San Salvador</p>
+              <p class="event-price">Desde $12</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="event-card" aria-labelledby="evento-final-26" data-category="Deportes" data-city="San Salvador" data-name="Final 26">
+          <a class="event-card__link" href="explorar.html?evento=final-26">
+            <figure class="poster poster--final" aria-hidden="true">
+              <span class="poster-shape shape-a"></span><span class="poster-shape shape-b"></span><span class="poster-bar"></span>
+              <span class="poster-title">FINAL<br><span class="large-number">26</span></span>
+            </figure>
+            <div class="event-details">
+              <p class="event-meta">Deportes <span aria-hidden="true">·</span> El Salvador</p>
+              <h3 id="evento-final-26">Final 26</h3>
+              <p class="event-date"><time datetime="2026-11-14T18:00:00-06:00">14 NOV · 6:00 PM</time></p>
+              <p class="event-venue">Estadio Central · San Salvador</p>
+              <p class="event-price">Desde $20</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="event-card" aria-labelledby="evento-sombra-y-luz" data-category="Arte" data-city="San Salvador" data-name="Sombra y luz">
+          <a class="event-card__link" href="explorar.html?evento=sombra-y-luz">
+            <figure class="poster poster--sombra" aria-hidden="true">
+              <span class="poster-shape shape-a"></span><span class="poster-shape shape-b"></span>
+              <span class="poster-title">SOMBRA<br><span class="second-line">Y LUZ</span></span>
+            </figure>
+            <div class="event-details">
+              <p class="event-meta">Arte <span aria-hidden="true">·</span> El Salvador</p>
+              <h3 id="evento-sombra-y-luz">Sombra y luz</h3>
+              <p class="event-date"><time datetime="2026-11-21T17:00:00-06:00">21 NOV · 5:00 PM</time></p>
+              <p class="event-venue">Museo Contemporáneo</p>
+              <p class="event-price">Desde $15</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="event-card" aria-labelledby="evento-escena-contemporanea" data-category="Teatro" data-city="San Salvador" data-name="Escena contemporánea">
+          <a class="event-card__link" href="explorar.html?evento=escena-contemporanea">
+            <figure class="poster poster--escena" aria-hidden="true">
+              <span class="poster-shape shape-a"></span><span class="poster-bar"></span>
+              <span class="poster-title">ESCENA</span><span class="poster-caption">TEATRO</span>
+            </figure>
+            <div class="event-details">
+              <p class="event-meta">Teatro <span aria-hidden="true">·</span> El Salvador</p>
+              <h3 id="evento-escena-contemporanea">Escena contemporánea</h3>
+              <p class="event-date"><time datetime="2026-11-28T19:00:00-06:00">28 NOV · 7:00 PM</time></p>
+              <p class="event-venue">Teatro Nacional</p>
+              <p class="event-price">Desde $25</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="event-card" aria-labelledby="evento-cine-al-aire-libre" data-category="Cine" data-city="San Salvador" data-name="Cine al aire libre">
+          <a class="event-card__link" href="explorar.html?evento=cine-al-aire-libre">
+            <figure class="poster poster--cine" aria-hidden="true">
+              <span class="poster-shape shape-a"></span><span class="poster-shape shape-b"></span>
+              <span class="poster-title">CINE</span><span class="poster-caption">AL AIRE LIBRE</span>
+            </figure>
+            <div class="event-details">
+              <p class="event-meta">Cine <span aria-hidden="true">·</span> El Salvador</p>
+              <h3 id="evento-cine-al-aire-libre">Cine al aire libre</h3>
+              <p class="event-date"><time datetime="2026-12-05T19:00:00-06:00">05 DIC · 7:00 PM</time></p>
+              <p class="event-venue">Plaza Cultural · San Salvador</p>
+              <p class="event-price">Desde $8</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="event-card" aria-labelledby="evento-ritmo-festival" data-category="Música" data-city="San Salvador" data-name="Ritmo Festival">
+          <a class="event-card__link" href="explorar.html?evento=ritmo-festival">
+            <figure class="poster poster--ritmo" aria-hidden="true">
+              <span class="poster-shape shape-a"></span><span class="poster-bar"></span>
+              <span class="poster-title">RITMO</span><span class="poster-caption">FESTIVAL / 26</span>
+            </figure>
+            <div class="event-details">
+              <p class="event-meta">Música <span aria-hidden="true">·</span> El Salvador</p>
+              <h3 id="evento-ritmo-festival">Ritmo Festival</h3>
+              <p class="event-date"><time datetime="2026-12-12T16:00:00-06:00">12 DIC · 4:00 PM</time></p>
+              <p class="event-venue">Parque Bicentenario</p>
+              <p class="event-price">Desde $30</p>
+            </div>
+          </a>
+        </article>
+      </div>
+
+      <p id="empty-state" class="empty-state" role="status" hidden>No encontramos eventos que coincidan con tu búsqueda.</p>
+      <p id="results-count" class="sr-only" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>ticket. <span class="copyright">© 2026</span></span>
+    <nav aria-label="Información y ayuda">
+      <button type="button" disabled>Ayuda</button>
+      <button type="button" disabled>Política de privacidad</button>
+      <button type="button" disabled>Términos</button>
+    </nav>
+  </footer>
+</body>
+</html>
