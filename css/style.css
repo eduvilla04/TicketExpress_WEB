@@ -1,0 +1,1072 @@
+/* TicketExpress — Inicio minimalista
+   Referencia visual: frame «Inicio» del proyecto de Figma.
+   Colores, tipografía y espaciado conservan la estética original. */
+
+:root {
+  --white: #fff;
+  --ink: #181818;
+  --body: #55585b;
+  --muted: #838383;
+  --border: #e5e5e2;
+  --surface: #f7f7f5;
+  --font: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+  position: relative;
+  z-index: 10;
+}
+
+.header-inner {
+  min-height: 86px;
+  padding: 0 41px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.header-brand, .header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.header-brand {
+  gap: 20px;
+}
+
+.header-actions {
+  gap: 12px;
+}
+
+.brand {
+  font-size: 29px;
+  font-weight: 700;
+  letter-spacing: -1.3px;
+  line-height: 1;
+}
+
+.brand:hover {
+  opacity: .76;
+}
+
+.icon-button {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+}
+
+.menu-button {
+  width: 21px;
+  height: 35px;
+}
+
+.icon-button svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pill-button, .city-select-wrap {
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+  white-space: nowrap;
+}
+
+.pill-button:hover, .city-select-wrap:hover {
+  background: var(--surface);
+  border-color: #cacac7;
+}
+
+.pill-button:active {
+  transform: translateY(1px);
+}
+
+.city-select-wrap {
+  width: 152px;
+  position: relative;
+}
+
+.city-select {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 30px 0 17px;
+  outline: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.city-select-wrap > svg {
+  position: absolute;
+  right: 13px;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+
+.search-button {
+  width: 44px;
+  padding: 0;
+}
+
+.pill-button svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.tickets-button {
+  gap: 8px;
+  width: 159px;
+  background: var(--ink);
+  color: var(--white);
+  border-color: var(--ink);
+}
+
+.tickets-button:hover {
+  background: #414141;
+  border-color: #414141;
+}
+
+.login-button {
+  width: 134px;
+}
+
+.drop-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 35px;
+  width: 218px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 9%);
+  padding: 8px;
+}
+
+.drop-menu a {
+  display: block;
+  border-radius: 6px;
+  font-size: 14px;
+  padding: 12px;
+}
+
+.drop-menu a:hover, .drop-menu a[aria-current="page"] {
+  background: var(--surface);
+}
+
+.search-panel {
+  border-top: 1px solid var(--border);
+}
+
+.search-panel-inner {
+  max-width: 1136px;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 auto;
+}
+
+.search-panel-inner > svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1.7;
+}
+
+.search-panel input {
+  flex: 1;
+  padding: 12px 0;
+  border: 0;
+  outline: 0;
+  font-size: 15px;
+  min-width: 0;
+}
+
+.clear-search {
+  border: 0;
+  background: none;
+  padding: 10px;
+  color: var(--muted);
+}
+
+/* ---------- Contenido ---------- */
+
+.page-content {
+  max-width: 1136px;
+  margin: 0 auto;
+}
+
+.intro {
+  padding-top: 67px;
+}
+
+.intro-location {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .01em;
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -.8px;
+  line-height: 1.22;
+  margin: 0 0 11px;
+}
+
+.intro-description {
+  font-size: 15px;
+  color: var(--body);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.events-section {
+  padding-top: 48px;
+}
+
+.events-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 18px;
+  gap: 20px;
+}
+
+.events-toolbar h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.events-toolbar h2 button {
+  background: none;
+  border: 0;
+  color: var(--ink);
+  padding: 0;
+  font-weight: 600;
+  text-align: left;
+}
+
+.events-toolbar h2 button:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.filters-aside {
+  min-width: 0;
+}
+
+.categories {
+  display: flex;
+  gap: 23px;
+  align-items: center;
+}
+
+.categories button {
+  background: none;
+  border: 0;
+  color: var(--body);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 4px 0;
+  position: relative;
+}
+
+.categories button::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transition: transform .2s;
+}
+
+.categories button:hover, .categories button.is-active {
+  color: var(--ink);
+}
+
+.categories button:hover::after, .categories button.is-active::after {
+  transform: scaleX(1);
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 25px;
+  row-gap: 29px;
+  margin-top: 23px;
+}
+
+.event-card {
+  min-width: 0;
+  border-radius: 5px;
+}
+
+.event-card__link {
+  display: block;
+  height: 100%;
+}
+
+.event-card.is-hidden {
+  display: none;
+}
+
+.event-card:hover .poster {
+  filter: brightness(.94);
+  transform: translateY(-2px);
+}
+
+.event-card:hover h3 {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.poster {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 262 / 195;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  transition: transform .2s ease, filter .2s ease;
+  isolation: isolate;
+}
+
+.poster-shape {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+}
+
+.poster-title, .poster-subtitle, .poster-caption {
+  position: absolute;
+  display: block;
+  z-index: 1;
+  line-height: 1.17;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.poster-caption {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.poster-bar {
+  position: absolute;
+  display: block;
+}
+
+.event-details {
+  padding: 9px 2px 0;
+}
+
+.event-details p, .event-details h3 {
+  margin: 0;
+}
+
+.event-meta {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.event-meta span {
+  padding: 0 3px;
+}
+
+.event-details h3 {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 12px;
+  overflow-wrap: anywhere;
+}
+
+.event-date {
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 14px;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.event-venue {
+  color: var(--body);
+  font-size: 12px;
+  line-height: 1.35;
+  margin-top: 7px;
+  min-height: 17px;
+}
+
+.event-price {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.3;
+  margin-top: 8px;
+}
+
+.empty-state {
+  padding: 54px 0;
+  color: var(--body);
+  font-size: 15px;
+}
+
+/* ---------- Afiches abstractos en escala de grises (reproducen las capas del Figma) ---------- */
+
+/* Las dimensiones originales están basadas en un póster de 262 × 195 px. */
+
+.poster--nocturna {
+  background: #252728;
+}
+
+.poster--nocturna .shape-a {
+  left: 50.4%;
+  top: -22.05%;
+  width: 89.7%;
+  aspect-ratio: 1;
+  background: #3f4143;
+}
+
+.poster--nocturna .shape-b {
+  left: 66.8%;
+  top: 2.05%;
+  width: 58%;
+  aspect-ratio: 1;
+  background: #777b7b;
+}
+
+.poster--nocturna .shape-c {
+  left: 72.9%;
+  top: 18.46%;
+  width: 36.3%;
+  aspect-ratio: 1;
+  background: #262829;
+}
+
+.poster--nocturna .poster-bar {
+  left: 7.6%;
+  right: 7.6%;
+  top: 75.9%;
+  height: 1px;
+  background: #8e9191;
+}
+
+.poster--nocturna .poster-title {
+  left: 6.5%;
+  top: 21%;
+  font-size: clamp(16px, 2.1vw, 29px);
+  color: #fff;
+}
+
+.poster--nocturna .poster-caption {
+  left: 7.3%;
+  top: 80.5%;
+  color: #d3d5d2;
+}
+
+.poster--jazz {
+  background: #858b8d;
+}
+
+.poster--jazz .shape-a {
+  left: 50%;
+  top: -24.6%;
+  width: 80.9%;
+  aspect-ratio: 1;
+  background: #b8bab9;
+}
+
+.poster--jazz .shape-b {
+  left: 55.3%;
+  top: 16.4%;
+  width: 53.8%;
+  aspect-ratio: 1;
+  background: #515758;
+}
+
+.poster--jazz .poster-title {
+  left: 8%;
+  top: 17.95%;
+  font-size: clamp(26px, 3.4vw, 47px);
+  color: #fff;
+}
+
+.poster--jazz .poster-subtitle {
+  left: 7.6%;
+  top: 48.7%;
+  font-size: clamp(11px, 1.3vw, 18px);
+  color: #fff;
+  font-weight: 600;
+}
+
+.poster--jazz .poster-caption {
+  left: 8%;
+  top: 83%;
+  color: #fff;
+}
+
+.poster--arte {
+  background: #d7d6d2;
+}
+
+.poster--arte .shape-a {
+  left: 39.7%;
+  top: 7.18%;
+  width: 77.9%;
+  aspect-ratio: 1;
+  background: #efefec;
+}
+
+.poster--arte .shape-b {
+  left: 55.3%;
+  top: 12.3%;
+  width: 58.4%;
+  aspect-ratio: 1;
+  background: #b2b3b0;
+}
+
+.poster--arte .poster-title {
+  left: 6.5%;
+  top: 20%;
+  font-size: clamp(16px, 2.1vw, 29px);
+  color: #282b2c;
+  line-height: 1.28;
+}
+
+.poster--arte .poster-caption {
+  left: 6.5%;
+  top: 84.1%;
+  color: #26282a;
+}
+
+.poster--final {
+  background: #2a3033;
+}
+
+.poster--final .shape-a {
+  left: 38.2%;
+  top: 2.05%;
+  width: 82.4%;
+  aspect-ratio: 1;
+  background: #555e61;
+}
+
+.poster--final .shape-b {
+  left: 55.3%;
+  top: 28.2%;
+  width: 51.5%;
+  aspect-ratio: 1;
+  background: #202629;
+}
+
+.poster--final .poster-bar {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 8.2%;
+  background: #545a5b;
+}
+
+.poster--final .poster-title {
+  left: 6.9%;
+  top: 26.7%;
+  font-size: clamp(28px, 3vw, 42px);
+  color: #fff;
+}
+
+.poster--final .large-number {
+  font-size: 1.215em;
+  color: #e5e5e1;
+}
+
+.poster--sombra {
+  background: #c4c6c3;
+}
+
+.poster--sombra .shape-a {
+  left: 40.1%;
+  top: -7.2%;
+  width: 84%;
+  aspect-ratio: 1;
+  background: #e5e6e3;
+}
+
+.poster--sombra .shape-b {
+  left: 55.3%;
+  top: 11.8%;
+  width: 61.5%;
+  aspect-ratio: 1;
+  background: #868c88;
+}
+
+.poster--sombra .poster-title {
+  left: 7.6%;
+  top: 28%;
+  font-size: clamp(16px, 2.15vw, 29px);
+  color: #26282a;
+}
+
+.poster--sombra .second-line {
+  font-size: 1.14em;
+}
+
+.poster--escena {
+  background: #737879;
+}
+
+.poster--escena .shape-a {
+  left: 50.8%;
+  top: 6.15%;
+  width: 70.6%;
+  aspect-ratio: 1;
+  background: #45494b;
+}
+
+.poster--escena .poster-bar {
+  left: 10.3%;
+  top: 10.25%;
+  width: 6.5%;
+  height: 74.36%;
+  background: #d7dad6;
+}
+
+.poster--escena .poster-title {
+  left: 9.5%;
+  top: 28.2%;
+  font-size: clamp(20px, 2.6vw, 37px);
+  color: #fff;
+}
+
+.poster--escena .poster-caption {
+  left: 9.5%;
+  top: 77.4%;
+  color: #fff;
+  font-size: 14px;
+}
+
+.poster--cine {
+  background: #242727;
+}
+
+.poster--cine .shape-a {
+  left: 5.7%;
+  top: -37.95%;
+  width: 104.6%;
+  aspect-ratio: 1;
+  background: #46484a;
+}
+
+.poster--cine .shape-b {
+  left: 48.85%;
+  top: 15.4%;
+  width: 55.7%;
+  aspect-ratio: 1;
+  background: #9da09c;
+}
+
+.poster--cine .poster-title {
+  left: 6.9%;
+  top: 26.2%;
+  font-size: clamp(34px, 3.9vw, 54px);
+  color: #fff;
+}
+
+.poster--cine .poster-caption {
+  left: 7.6%;
+  top: 62.05%;
+  color: #fff;
+  font-size: 14px;
+}
+
+.poster--ritmo {
+  background: #b8b9b5;
+}
+
+.poster--ritmo .shape-a {
+  left: 41.6%;
+  top: -15.9%;
+  width: 88.2%;
+  aspect-ratio: 1;
+  background: #d1d1cf;
+}
+
+.poster--ritmo .poster-bar {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 25.64%;
+  background: #646867;
+}
+
+.poster--ritmo .poster-title {
+  left: 6.9%;
+  top: 22.55%;
+  font-size: clamp(29px, 3.1vw, 43px);
+  color: #26282a;
+}
+
+.poster--ritmo .poster-caption {
+  left: 7.25%;
+  top: 81.5%;
+  font-size: 14px;
+  color: #fff;
+}
+
+/* ---------- Footer / feedback ---------- */
+
+.site-footer {
+  width: min(1136px, calc(100% - 40px));
+  margin: 35px auto 0;
+  padding: 11px 0 26px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.copyright {
+  padding-left: 4px;
+}
+
+.site-footer nav {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.site-footer button {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.site-footer button:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+/* Las funciones aún no implementadas mantienen su apariencia sin actuar. */
+button:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+.site-footer button:disabled:hover {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+/* ---------- Adaptación responsive ----------
+   Escritorio: 1200px en adelante, catálogo de 4 columnas.
+   Tablet:     768–1199px, 3 columnas.
+   Móvil:      hasta 767px, 2 columnas.
+   Los controles del encabezado usan Flexbox; el catálogo usa CSS Grid.
+   ---------- */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .page-content {
+    max-width: none;
+    margin-inline: 5%;
+  }
+
+  .site-footer {
+    width: 90%;
+  }
+
+  .header-inner {
+    padding-inline: 24px;
+  }
+
+  .events-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px 22px;
+  }
+
+  .events-toolbar {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .categories {
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  .poster--nocturna .poster-title,
+  .poster--arte .poster-title,
+  .poster--sombra .poster-title {
+    font-size: clamp(18px, 2.6vw, 29px);
+  }
+
+  .search-panel-inner {
+    padding-inline: 5%;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-inner {
+    padding: 0 20px;
+    min-height: 68px;
+    gap: 10px;
+  }
+
+  .brand {
+    font-size: 24px;
+  }
+
+  .header-brand {
+    gap: 15px;
+  }
+
+  .city-select-wrap, .tickets-button, .login-button {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 0;
+  }
+
+  .search-button {
+    width: 38px;
+    height: 38px;
+    border: 0;
+  }
+
+  .drop-menu {
+    left: 12px;
+  }
+
+  .search-panel-inner {
+    padding-inline: 20px;
+  }
+
+  .page-content {
+    max-width: none;
+    margin-inline: 20px;
+  }
+
+  .site-footer {
+    width: auto;
+    margin-inline: 20px;
+  }
+
+  .intro {
+    padding-top: 45px;
+  }
+
+  .intro-location {
+    font-size: 11px;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: 27px;
+    letter-spacing: -.45px;
+  }
+
+  .intro-description {
+    font-size: 13px;
+  }
+
+  .events-section {
+    padding-top: 40px;
+  }
+
+  .events-toolbar {
+    padding-bottom: 14px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .categories {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .categories button {
+    font-size: 12px;
+  }
+
+  .events-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px 14px;
+    margin-top: 21px;
+  }
+
+  .event-details {
+    padding-top: 8px;
+  }
+
+  .event-details h3 {
+    font-size: 14px;
+    margin-top: 9px;
+  }
+
+  .event-date, .event-venue, .event-price {
+    font-size: 11px;
+  }
+
+  .event-card .event-date {
+    margin-top: 11px;
+  }
+
+  .event-card .poster-title {
+    font-size: clamp(16px, 5.5vw, 24px);
+  }
+
+  .event-card .poster--jazz .poster-title {
+    font-size: clamp(20px, 6.2vw, 31px);
+  }
+
+  .event-card .poster--final .poster-title {
+    font-size: clamp(22px, 6vw, 32px);
+  }
+
+  .event-card .poster--cine .poster-title {
+    font-size: clamp(28px, 7vw, 39px);
+  }
+
+  .event-card .poster-caption {
+    font-size: 9px;
+  }
+
+  .event-card .poster--jazz .poster-subtitle {
+    font-size: 10px;
+  }
+
+  .site-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-bottom: 30px;
+  }
+
+  .site-footer nav {
+    gap: 12px;
+  }
+
+  .site-footer button {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 359px) {
+  .page-content, .site-footer {
+    margin-inline: 14px;
+  }
+
+  .events-grid {
+    gap: 19px 10px;
+  }
+
+  .categories {
+    gap: 12px;
+  }
+
+  .event-card .poster--arte .poster-title,
+  .event-card .poster--sombra .poster-title {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
