@@ -1070,3 +1070,169 @@ button:disabled {
     transition-duration: .01ms !important;
   }
 }
+
+
+/* ========= PANTALLA EXPLORAR ========= */
+
+.explore-content {
+  padding-top: 34px;
+  padding-bottom: 60px;
+}
+
+.explore-hero {
+  padding-top: 28px;
+}
+
+.explore-search-section {
+  margin-top: 34px;
+}
+
+.explore-label,
+.explore-filter-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 14px;
+  color: var(--ink);
+}
+
+.explore-search-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.explore-search-input {
+  flex: 1;
+  height: 48px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0 16px;
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--white);
+}
+
+.explore-search-input::placeholder {
+  color: #9a9a96;
+}
+
+.explore-search-submit {
+  height: 48px;
+  min-width: 112px;
+  border: 0;
+  border-radius: 24px;
+  background: var(--ink);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0 24px;
+}
+
+.explore-filters {
+  margin-top: 28px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.explore-pill-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.explore-pill {
+  height: 40px;
+  padding: 0 28px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.explore-pill.is-active {
+  background: var(--ink);
+  color: var(--white);
+  border-color: var(--ink);
+}
+
+.explore-results {
+  padding-top: 18px;
+}
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.explore-card-details h3 {
+  margin: 14px 0 8px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.explore-card-details .event-date {
+  margin: 0 0 16px;
+  font-size: 11px;
+  letter-spacing: .04em;
+  color: var(--muted);
+}
+
+.explore-link {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .explore-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .explore-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .explore-search-row {
+    flex-wrap: wrap;
+  }
+
+  .explore-search-submit {
+    width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .explore-search-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .explore-search-submit {
+    width: 100%;
+  }
+
+  .explore-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .explore-pill-group {
+    gap: 10px;
+  }
+
+  .explore-pill {
+    padding: 0 18px;
+  }
+}
+
+.event-card[hidden] {
+  display: none !important;
+}

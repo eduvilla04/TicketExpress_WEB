@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explorar eventos | TicketExpress</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- JavaScript de la pantalla Explorar -->
+  <script src="js/explorar.js" defer></script>
+</head>
+
+<body class="explore-page">
+
+  <!-- ENCABEZADO -->
+  <header class="site-header">
+    <div class="header-inner">
+
+      <div class="header-brand">
+        <button
+          class="icon-button menu-button"
+          type="button"
+          id="menu-button"
+          aria-label="Abrir menú"
+          aria-controls="site-menu"
+          aria-expanded="false">
+
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+
+        <a href="index.html" class="brand"
+           aria-label="TicketExpress, ir al inicio">
+          ticket.
+        </a>
+      </div>
+
+      <nav class="header-actions" aria-label="Acciones principales">
+
+        <div class="city-select-wrap">
+          <label class="sr-only" for="city-select">
+            Seleccionar ciudad
+          </label>
+
+          <select id="city-select" class="city-select">
+            <option value="San Salvador">San Salvador</option>
+            <option value="Santa Tecla">Santa Tecla</option>
+            <option value="Todo El Salvador" selected>Todo El Salvador</option>
+          </select>
+
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m7 10 5 5-5"/>
+          </svg>
+        </div>
+
+        <button
+          type="button"
+          class="pill-button search-button"
+          id="search-button"
+          aria-label="Buscar eventos"
+          aria-controls="search-panel"
+          aria-expanded="false">
+
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="10.8" cy="10.8" r="6.3"/>
+            <path d="m15.5 15.5 4.7 4.7"/>
+          </svg>
+        </button>
+
+        <button type="button" class="pill-button tickets-button" disabled>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 7h18v4a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4V7Z"/>
+            <path d="M11.5 9v2m0 2v2m0 2v1"/>
+          </svg>
+          <span>Mis entradas</span>
+        </button>
+
+        <button type="button" class="pill-button login-button" disabled>
+          Iniciar sesión
+        </button>
+
+      </nav>
+    </div>
+
+    <!-- MENÚ -->
+    <nav
+      id="site-menu"
+      class="drop-menu"
+      aria-label="Menú del sitio"
+      hidden>
+
+      <a href="index.html">Inicio</a>
+      <a href="explorar.html" aria-current="page">
+        Explorar eventos
+      </a>
+    </nav>
+
+    <!-- BUSCADOR DEL ENCABEZADO -->
+    <div id="search-panel" class="search-panel" hidden>
+      <form class="search-panel-inner" id="header-search-form" role="search">
+
+        <label for="event-search" class="sr-only">
+          Buscar eventos
+        </label>
+
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="10.8" cy="10.8" r="6.3"/>
+          <path d="m15.5 15.5 4.7 4.7"/>
+        </svg>
+
+        <input
+          id="event-search"
+          type="search"
+          placeholder="Buscar eventos..."
+          autocomplete="off">
+
+        <button
+          type="button"
+          class="clear-search"
+          id="clear-search"
+          aria-label="Limpiar búsqueda">
+          ✕
+        </button>
+
+      </form>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="page-content explore-content">
+
+    <!-- PRESENTACIÓN -->
+    <section class="explore-hero" aria-labelledby="explore-title">
+
+      <p class="intro-location">EL SALVADOR</p>
+
+      <h1 id="explore-title">
+        Encontrá tu próximo evento
+      </h1>
+
+      <p class="intro-description">
+        Explorá la agenda según fecha, categoría o ubicación.
+      </p>
+
+    </section>
+
+    <!-- BUSCADOR PRINCIPAL -->
+    <section class="explore-search-section" aria-label="Buscador de eventos">
+
+      <label for="explore-search-input" class="explore-label">
+        Buscar
+      </label>
+
+      <form class="explore-search-row" id="explore-form">
+
+        <input
+          type="search"
+          id="explore-search-input"
+          class="explore-search-input"
+          placeholder="Artista, evento o lugar..."
+          autocomplete="off">
+
+        <button type="submit" class="explore-search-submit">
+          Buscar
+        </button>
+
+      </form>
+    </section>
+
+    <!-- FILTROS -->
+    <section class="explore-filters" aria-labelledby="filtros-titulo">
+
+      <h2 id="filtros-titulo" class="explore-filter-title">
+        Filtros
+      </h2>
+
+      <div class="explore-pill-group" role="group"
+           aria-label="Filtrar por categoría">
+
+        <button
+          type="button"
+          class="explore-pill is-active"
+          aria-pressed="true">
+          Todos
+        </button>
+
+        <button
+          type="button"
+          class="explore-pill"
+          aria-pressed="false">
+          Música
+        </button>
+
+        <button
+          type="button"
+          class="explore-pill"
+          aria-pressed="false">
+          Arte y cultura
+        </button>
+
+        <button
+          type="button"
+          class="explore-pill"
+          aria-pressed="false">
+          Teatro
+        </button>
+
+        <button
+          type="button"
+          class="explore-pill"
+          aria-pressed="false">
+          Deportes
+        </button>
+
+      </div>
+    </section>
+
+    <!-- RESULTADOS DE EVENTOS -->
+    <section class="explore-results" aria-label="Resultados de eventos">
+
+      <div class="explore-grid">
+
+        <!-- EVENTO 1 -->
+        <article
+          class="event-card"
+          data-name="Nocturna Sessions"
+          data-category="Música"
+          data-city="San Salvador">
+
+          <a class="event-card__link" href="explorar.html?evento=nocturna-sessions">
+
+            <figure class="poster poster--nocturna" aria-hidden="true">
+              <span class="poster-shape shape-a"></span>
+              <span class="poster-shape shape-b"></span>
+              <span class="poster-shape shape-c"></span>
+              <span class="poster-bar"></span>
+              <span class="poster-title">NOCTURNA</span>
+              <span class="poster-caption">
+                MÚSICA / CULTURA / VIVO
+              </span>
+            </figure>
+
+            <div class="event-details explore-card-details">
+
+              <h3>Nocturna Sessions</h3>
+
+              <p class="event-date">
+                <time datetime="2026-10-24">
+                  24 OCT · SAN SALVADOR
+                </time>
+              </p>
+
+              <p class="explore-link">Ver evento ↗</p>
+
+            </div>
+          </a>
+        </article>
+
+        <!-- EVENTO 2 -->
+        <article
+          class="event-card"
+          data-name="Jazz After Hours"
+          data-category="Música"
+          data-city="Santa Tecla">
+
+          <a class="event-card__link" href="explorar.html?evento=jazz-after-hours">
+
+            <figure class="poster poster--jazz" aria-hidden="true">
+              <span class="poster-shape shape-a"></span>
+              <span class="poster-shape shape-b"></span>
+              <span class="poster-title">JAZZ</span>
+              <span class="poster-caption">
+                MÚSICA / CULTURA / VIVO
+              </span>
+            </figure>
+
+            <div class="event-details explore-card-details">
+
+              <h3>Jazz After Hours</h3>
+
+              <p class="event-date">
+                <time datetime="2026-10-31">
+                  31 OCT · SANTA TECLA
+                </time>
+              </p>
+
+              <p class="explore-link">Ver evento ↗</p>
+
+            </div>
+          </a>
+        </article>
+
+        <!-- EVENTO 3 -->
+        <article
+          class="event-card"
+          data-name="El arte de estar"
+          data-category="Arte y cultura"
+          data-city="San Salvador">
+
+          <a class="event-card__link" href="explorar.html?evento=el-arte-de-estar">
+
+            <figure class="poster poster--arte" aria-hidden="true">
+              <span class="poster-shape shape-a"></span>
+              <span class="poster-shape shape-b"></span>
+              <span class="poster-title">ARTE</span>
+              <span class="poster-caption">
+                MÚSICA / CULTURA / VIVO
+              </span>
+            </figure>
+
+            <div class="event-details explore-card-details">
+
+              <h3>El arte de estar</h3>
+
+              <p class="event-date">
+                <time datetime="2026-11-08">
+                  08 NOV · SAN SALVADOR
+                </time>
+              </p>
+
+              <p class="explore-link">Ver evento ↗</p>
+
+            </div>
+          </a>
+        </article>
+
+      </div>
+
+      <!-- MENSAJE CUANDO NO HAY RESULTADOS -->
+      <p id="explore-empty" hidden>
+        No se encontraron eventos con esa búsqueda.
+      </p>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 TicketExpress</p>
+    <nav aria-label="Navegación del pie de página">
+      <a href="index.html">Inicio</a>
+      <a href="explorar.html">Explorar eventos</a>
+    </nav>
+  </footer>
+
+</body>
+</html>

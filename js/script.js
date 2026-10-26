@@ -15,7 +15,7 @@ const eventsHeading = document.querySelector('#events-heading');
 const emptyState = document.querySelector('#empty-state');
 const resultsCount = document.querySelector('#results-count');
 
-const EXPLORAR_HABILITADO = false;
+const EXPLORAR_HABILITADO = true;
 
 let activeCategory = 'Todos';
 
